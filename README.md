@@ -2,6 +2,8 @@
 
 命令: python /opt/send_email/send_email.py
 
+镜像: daocloud.io/dc_pokeman/send_email:latest
+
 功能描述: 该命令用于发送一封邮件，邮件发送方式和内容由环境变量决定
 
 配置方式：环境变量
@@ -21,4 +23,3 @@
 | EMAIL_CONTENT   | 邮件内容   |                                          | 是    |
 | EMAIL_FILE      | 附件路径   | 附件路径，文件或目录不存在则报错                         |      |
 | EMAIL_FILE2     | 附件路径   | 追加附件路径，文件或目录不存在则报错。可以有EMAIL_FILE3一直到EMAIL_FILEN，整数不可间隔，如有间隔，到中断的整数为止 |      |
-

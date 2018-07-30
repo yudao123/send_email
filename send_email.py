@@ -62,9 +62,14 @@ def zip_compress_directory(base_dir):
     compress whole directory to a temp zip file,
     and return the path of zip file
     '''
-    fd, zip_filename = tempfile.mkstemp()
-    print('create temp zip file : ' + zip_filename)
-    os.close(fd)
+    temp_folder = tempfile.mkdtemp()
+    print('create temp zip file : ' + temp_folder)
+
+    basename = os.path.basename(os.path.abspath(base_dir))
+    if not basename:
+        basename = 'attachment'
+
+    zip_filename = os.path.join(temp_folder, basename + '.zip')
     with zipfile.ZipFile(zip_filename, 'w') as fp:
         for top_dir, _, filenames in os.walk(base_dir):
             for filename in filenames:
